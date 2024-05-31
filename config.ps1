@@ -170,22 +170,24 @@ while (-not $validCIDR) {
 
 # check the Hub RG details
 $valid = $false
-do {
-    $hubRG = Get-TrimmedValue("Enter the HUB resource group name")
-    if ([string]::IsNullOrWhiteSpace($hubRG)) {
-        Write-Error "ERROR: Resource Group Name cannot be null or empty."
+$hubRG = "rg-btccentralhub-dev-uksouth-001"
+# do {
+#     $hubRG = Get-TrimmedValue("Enter the HUB resource group name")
+#     if ([string]::IsNullOrWhiteSpace($hubRG)) {
+#         Write-Error "ERROR: Resource Group Name cannot be null or empty."
         
-    } else {
-        if (Test-ResourceExists -resourceGroupName $hubRG) {
-            $valid = $true
-        } else {
-            Write-Error "ERROR: Resource Group '$hubRG' does not exist."
-        }
-    }
-} while ($valid -eq $false)
+#     } else {
+#         if (Test-ResourceExists -resourceGroupName $hubRG) {
+#             $valid = $true
+#         } else {
+#             Write-Error "ERROR: Resource Group '$hubRG' does not exist."
+#         }
+#     }
+# } while ($valid -eq $false)
 
 #Check the Hub VNET details
 $vnetName = Test-ResourceLoop "Enter the HUB vnet name" $hubRG 
+$vnetName = "vnet-btccentralhub-dev-uksouth-001"
 #$vaultName = Test-ResourceLoop "Enter the HUB key vault name" $hubRG 
 
 #############################################
@@ -194,21 +196,23 @@ $vnetName = Test-ResourceLoop "Enter the HUB vnet name" $hubRG
 
 # check the Firewall RG details
 $valid = $false
-do {
-    $fwRG = Get-TrimmedValue("Enter the Firewall resource group name")
-    if ([string]::IsNullOrWhiteSpace($fwRG)) {
-        Write-Error "ERROR: Resource Group Name cannot be null or empty."
+$fwRG = "rg-btccentralhub-dev-uksouth-001"
+# do {
+#     $fwRG = Get-TrimmedValue("Enter the Firewall resource group name")
+#     if ([string]::IsNullOrWhiteSpace($fwRG)) {
+#         Write-Error "ERROR: Resource Group Name cannot be null or empty."
         
-    } else {
-        if (Test-ResourceExists -resourceGroupName $fwRG) {
-            $valid = $true
-        } else {
-            Write-Error "ERROR: Resource Group '$fwRG' does not exist."
-        }
-    }
-} while ($valid -eq $false)
+#     } else {
+#         if (Test-ResourceExists -resourceGroupName $fwRG) {
+#             $valid = $true
+#         } else {
+#             Write-Error "ERROR: Resource Group '$fwRG' does not exist."
+#         }
+#     }
+# } while ($valid -eq $false)
 
-$fwName = Test-ResourceLoop "Enter the Firewall name" $fwRG
+# $fwName = Test-ResourceLoop "Enter the Firewall name" $fwRG
+$fwName = "firewall-btccentralhub-dev-uksouth-001"
 
 ########################
 # Write out the config #
