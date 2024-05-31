@@ -186,7 +186,7 @@ $hubRG = "rg-btccentralhub-dev-uksouth-001"
 # } while ($valid -eq $false)
 
 #Check the Hub VNET details
-$vnetName = Test-ResourceLoop "Enter the HUB vnet name" $hubRG 
+#$vnetName = Test-ResourceLoop "Enter the HUB vnet name" $hubRG 
 $vnetName = "vnet-btccentralhub-dev-uksouth-001"
 #$vaultName = Test-ResourceLoop "Enter the HUB key vault name" $hubRG 
 
